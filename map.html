@@ -4,14 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PINVRA - Map</title>
+    <!-- Leaflet Required Files -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" defer></script>
+
+    <!-- Our Settings -->
     <link rel="stylesheet" href="css/general.css">
+    <link rel="stylesheet" href="css/map.css">
+    <script src="js/map.js" defer></script>
+
 </head>
+
 <body>
 <!-- Navigation Bar -->
     <header>
         <nav class="navbar">
             <a href="index.html" class="logo">
-                <img src="images/logo.png" alt="logo">
+                <img src="images/logo.jpg" alt="logo">
                 <span>FASEKLO</span>
             </a>
 
@@ -29,7 +38,43 @@
     </header>
 
     <main>
+        <section class="map-section">
+            <!-- Heading and instruction -->
+            <h1>Your World, Your Map</h1>
+            <p id="description">Explore your personal map and rediscover the places that matter to you.</p>
+            <p id="instruction">
+                <img src="images/click.jpg" alt="">
+                Select a pin to discover more about your saved place.
+            </p>
 
+            <!-- Map -->
+            <div id="map"></div>
+
+            <!-- Box Information -->
+            <article id="place-info" hidden>
+
+                <div class="place-header">
+                    <h2 id="place-name"></h2>
+                    <button id="close-info" type="button"
+                            aria-label="Close place information">
+                        X
+                    </button>
+                </div>
+
+                <p id="place-category"></p>
+
+                <h3>Address</h3>
+                <p id="place-address"></p>
+
+                <h3>Notes</h3>
+                <p id="place-notes"></p>
+
+                <h3>Coordinates</h3>
+                <p id="place-coordinates"></p>
+
+            </article>
+
+        </section>
     </main>
 
 <!-- Footer Page -->

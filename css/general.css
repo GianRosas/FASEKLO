@@ -2,14 +2,16 @@
     --forest: #174D36;
     --cream: #F5F2E9;
     --sage: #D4E3D5;
-    --terra: #B66D51;
-    --sand: #E8D8BA;
 }
 
 /* GLOBAL STYLING */
 body {
     margin: 0;
     background-color: var(--cream);
+}
+
+h1, h2, h3, h4 {
+    font-family: Georgia, 'Times New Roman', serif;
 }
 
 /*////////////////////////////////// */
