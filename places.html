@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html lang="eng">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FASEKLO | Places</title>
     <link rel="stylesheet" href="css/general.css">
+    <link rel="stylesheet" href="css/places.css">
 </head>
 
 <body>
@@ -22,15 +23,41 @@
                 <a href="places.html">Saved Places</a>
             </div>
 
-            <a href="Recomendations" class="surprise">
-                <img src="mix" alt="">
-                <span>SURPRISE ME</span>
+            <a href="" class="secret">
+                <span>Secret Spot</span>
             </a>
         </nav>
     </header>
 
     <main>
-        
+        <section class="saved">
+
+            <h1>Saved Places</h1>
+            <p>Your favourite places and secret spots</p>
+            <div class="searching-bar">
+                <img src="images/searching.jpg" alt="">
+                <input type="search" class="searching" 
+                    placeholder="Search your places..." aria-label="">
+            </div>
+
+            <div class="place-list">
+                <article class="place-card">
+                    <img class="place-img" alt="">
+                    <div class="place-info">
+                        <h2 class="place-name"></h2>
+                        <p class="place-city"></p>
+                        <div class="place-coord">
+                            <span class="lat"></span>
+                            <span>/</span>
+                            <span class="lng"></span>
+                        </div>
+                        <p class="place-notes"></p>
+                    </div>
+                    <a class="directions"> Get Directions </a>
+                </article>
+            </div>
+            
+        </section>
     </main>
 
 <!-- Footer Page -->    
@@ -44,13 +71,13 @@
             <div class="developers">
                 <p>DEVELOPED BY</p>
                 <p>Gian Rosas & Anshika Sharma</p>
-                <p>Okangan College - BCIS</p>
+                <p>Okanagan College - BCIS</p>
             </div>
         </div>
 
         <div class="footer-bottom">
             <p>© 2026 FASEKLO. All rights reserved.</p>
-            <p>By explores to explores</p>
+            <p>By explores, for explores</p>
         </div>
     </footer>
 </body>

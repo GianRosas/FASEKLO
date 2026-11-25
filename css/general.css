@@ -55,13 +55,13 @@ h1, h2, h3, h4 {
 
 /* Surprise Me Button */
 
-.surprise {
+.secret {
     background-color: var(--forest);
     padding: 10px 20px;
     border-radius: 25px;
 }
 
-.surprise span {
+.secret span {
     color: white;
 }
 
