@@ -1,55 +1,13 @@
-// Array of objects for default places
-const defaultPlaces = [
-    {
-        id: 1,
-        name: "Myra Canyon",
-        city: "Kelowna, BC",
-        lat: 49.801944,
-        lng: -119.312500,
-        notes: "Myra Canyon trailway",
-        image: "images/myra.jpg",
-        type: "Default Place"
-    },
-    {
-        id: 2,
-        name: "Knox Mountain",
-        city: "Kelowna, BC",
-        lat: 49.905357,
-        lng: -119.490250,
-        notes: "Knox Mountain Lookout",
-        image: "images/knox.jpeg",
-        type: "Default Place"
-    },
-    {
-        id: 3,
-        name: "Lakestone Park",
-        city: "Lake Country, BC",
-        lat: 50.015660,
-        lng: -119.441349,
-        notes: "Lakestone Waterside Park",
-        image: "images/lakestone.jpg",
-        type: "Default Place"
-    }
-];
-
-// Array with localstorage elements
-let places;
-
-// Check if the localStorage has saved places if not initialize the dault into the localstorage 
-if (localStorage.getItem("places") === null){
-    localStorage.setItem("places", JSON.stringify(defaultPlaces));
-    places = defaultPlaces;
-}else{
-    places = JSON.parse(localStorage.getItem("places"));
-}
-
 
 const placeList = document.querySelector(".place-list");
+const search = document.querySelector(".searching");
 
-function renderPlaces(places){
+// Render saved places
+function renderPlaces(places) {
     placeList.innerHTML = "";
 
-    if (places.length === 0){
+    // No places found
+    if (places.length === 0) {
         const article = document.createElement("article");
         article.classList.add("empty-card");
 
@@ -67,7 +25,8 @@ function renderPlaces(places){
         return;
     }
 
-    for (const place of places){
+    // Create a card for each place
+    for (const place of places) {
         const article = document.createElement("article");
         article.classList.add("place-card");
 
@@ -83,39 +42,44 @@ function renderPlaces(places){
                 </div>
                 <p class="place-notes"></p>
             </div>
-            <a class="directions"> Get Directions </a>
+            <a class="directions">Get Directions</a>
         `;
 
+        // Place image
         const img = article.querySelector(".place-img");
         img.alt = place.name;
 
-        if (place.type === "Default Place"){
+        if (place.type === "Default Place" && place.image) {
             img.src = place.image;
-        }else if (place.type === "Secret Spot") {
+        } else if (place.type === "Secret Spot") {
             img.src = "images/secretspot.jpg";
         } else {
             img.src = "images/savedplace.jpg";
         }
 
+        // Place information
         article.querySelector(".place-name").textContent = place.name;
         article.querySelector(".place-city").textContent = place.city;
         article.querySelector(".lat").textContent = place.lat;
         article.querySelector(".lng").textContent = place.lng;
         article.querySelector(".place-notes").textContent = place.notes;
-        
+
+        // Google Maps directions
         const direc = article.querySelector(".directions");
+
         direc.href = `https://www.google.com/maps/dir/?api=1&destination=${place.lat},${place.lng}`;
-        direc.target = "noopener";
+        direc.target = "_blank";
+        direc.rel = "noopener";
 
         placeList.appendChild(article);
     }
 }
 
+// Display all places when the page loads
 renderPlaces(places);
 
-const search = document.querySelector(".searching");
-
-search.addEventListener("input", function(){
+// Search places by name
+search.addEventListener("input", function() {
     const searchText = search.value.toLowerCase().trim();
 
     const filteredPlaces = places.filter(place =>

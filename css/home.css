@@ -1,7 +1,22 @@
+
 /* GLOBAL STYLING */
 
-h2 {
+.structure {
+    display: flex;
+    flex-direction: column;
+
+    width: 100%;
+    max-width: 1600px;
+    box-sizing: border-box;
+
+    margin: 20px auto;
+    padding: 0 15px;
+    gap: 20px;
+}
+
+.structure h2 {
     font-size: 40px;
+    margin: 20px 0;
 }
 
 /*////////////////////////////////// */
@@ -46,6 +61,7 @@ h2 {
 
 .banner-kw {
     display: flex;
+    flex-wrap: wrap;
     gap: 10px;
 }
 
@@ -58,6 +74,7 @@ h2 {
 
 .container a {
     flex: 1;
+    min-width: 0;
     padding: 25px;
 
     background-color: white;
@@ -70,12 +87,13 @@ h2 {
 
 .container h3 {
     font-size: 20px;
-    margin-bottom: 5px;
+    margin: 0 0 5px;
 }
 
 .container p {
     font-size: 15px;
     color: #52665B;
+    margin: 5px 0;
 }
 
 .container a:hover {
@@ -92,12 +110,12 @@ h2 {
 .discover {
     display: flex;
     flex-direction: column;
-    margin-bottom: 60px;
+    margin-bottom: 40px;
 }
 
 .locations {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 20px;
 }
 
@@ -108,6 +126,7 @@ h2 {
     height: 100%;
     box-sizing: border-box;
     overflow: hidden;
+
     border-radius: 20px;
     border: 2px solid var(--forest);
 
@@ -123,22 +142,46 @@ h2 {
 .place-card h3 {
     font-size: 25px;
     margin: 10px 0;
-    padding-left: 20px;
+    padding: 0 15px;
 }
 
 .place-card p {
     margin: 5px 0;
-    padding-left: 20px;
+    padding: 0 15px;
+}
+
+.place-card > p {
+    margin-bottom: 15px;
 }
 
 .location {
     display: flex;
-    gap: 10px;
+    flex-wrap: wrap;
+    gap: 5px;
+    padding: 0 15px;
+    color: var(--forest);
+}
+
+.location p {
+    padding: 0;
 }
 
 /* RESPONSIVE DESIGN */
 
-@media (max-width: 600px) {
+@media (max-width: 768px) {
+
+    .structure h2 {
+        font-size: 30px;
+    }
+
+    .banner {
+        min-height: 300px;
+        border-radius: 25px;
+    }
+
+    .banner h1 {
+        font-size: 32px;
+    }
 
     .container {
         flex-direction: column;
@@ -148,13 +191,11 @@ h2 {
         grid-template-columns: 1fr;
     }
 
-    .footer-content,
-    .footer-bottom {
-        flex-direction: column;
-        gap: 15px;
+    .place-card img {
+        height: 220px;
     }
 
-    .developers {
-        text-align: left;
+    .place-card h3 {
+        font-size: 23px;
     }
 }
