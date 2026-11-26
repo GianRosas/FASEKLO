@@ -8,6 +8,13 @@
 body {
     margin: 0;
     background-color: var(--cream);
+    display: flex;
+    flex-direction: column;
+    min-width: 100vh;
+}
+
+main{
+    flex: 1;
 }
 
 h1, h2, h3, h4 {
@@ -89,7 +96,7 @@ footer {
     margin: 8px 0;
 }
 
-.brand h4 {
+.brand a {
     font-size: 26px;
     margin: 0 0 10px;
 }
@@ -98,7 +105,7 @@ footer {
     text-align: right;
 }
 
-.developers h4 {
+.developers p {
     font-size: 14px;
     margin: 0 0 10px;
 }
